@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CakePHP
 =======
 
@@ -37,3 +38,9 @@ Get Support!
 [![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
 
 ![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+=======
+cakephpexample
+==============
+
+This is cakephp example tutorial code 
+>>>>>>> c267988c24d75ab4acc5d3c25080f2fef024ccc9
