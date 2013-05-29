@@ -14,9 +14,12 @@ class PostsController  extends AppController
   function add()
   {
      $this->layout = 'custom' ;
-  
+
     $user = $this->Auth->user();   
-    if(!$this->Access->check('Post', 'read')) die('you are not authorized'); 
+    if(!$this->Access->check('Post', 'read')){
+      $this->Session->setFlash('You are  not authorized to access this page');
+      $this->redirect(array('controller' => 'users',  'action' =>  'index')) ;
+    } 
   
   }
 

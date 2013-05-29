@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 CakePHP
 =======
 
@@ -43,4 +42,3 @@ cakephpexample
 ==============
 
 This is cakephp example tutorial code 
->>>>>>> c267988c24d75ab4acc5d3c25080f2fef024ccc9
