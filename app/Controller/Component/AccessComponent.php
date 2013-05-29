@@ -20,6 +20,7 @@ class  AccessComponent extends Component
 
     function check($aco , $action = "*"){
 
+        // var_dump($this->Acl->check('User::'.$this->user['id'],$aco ,$action));
         if(!empty($this->user) && $this->Acl->check('User::'.$this->user['id'],$aco ,$action) )
             return true;
         else

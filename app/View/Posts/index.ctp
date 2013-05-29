@@ -32,3 +32,7 @@ echo "This is a domo for Angular js Application" ;;
     </select>
      
 </div>
+
+<?php
+ var_dump($post);
+?>

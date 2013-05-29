@@ -11,8 +11,8 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController
 {  
-	var $helpers = array('Session','Form','Html') ;
-	var $components = array('DebugKit.Toolbar','Auth','Session','Acl');
+	var $helpers = array('Session','Form','Html','Access') ;
+	var $components = array('DebugKit.Toolbar','Auth','Session','Acl','Access');
 	
   function beforeFilter(){
     $this->Auth->allow();

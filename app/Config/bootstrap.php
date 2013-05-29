@@ -109,8 +109,8 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 
-Configure::write('Exception.handler', function ($error) {
+/*Configure::write('Exception.handler', function ($error) {
     echo $error->getMessage() ;
     echo " on line ".$error->getLine();
     echo " in file " .$error->getFile();
-});
+});*/

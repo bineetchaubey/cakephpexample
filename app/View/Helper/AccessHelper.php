@@ -1,17 +1,17 @@
 <?php
 
-class AcessHelper extends AppHelper
+class AccessHelper extends AppHelper
 {
 
-   var $helpers = array('Session')
+   var $helpers = array('Session') ;
    var $user ;
 
    function beforeRender(){
-       App::import('Component', 'Access');   
-        $this->Access = new AccessComponent();   
+       App::uses('Component', 'Access');   
+        $this->Access = new AccessComponent(new ComponentCollection());   
    
-        App::import('Component', 'Auth');   
-        $this->Auth = new AuthComponent();   
+        App::uses('Component', 'Auth');   
+        $this->Auth = new AuthComponent(new ComponentCollection());   
         $this->Auth->Session = $this->Session;   
         $this->user = $this->Auth->user(); 
    }

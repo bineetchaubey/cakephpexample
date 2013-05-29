@@ -61,9 +61,9 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
                   <a href="#" class="brand">RND about Cakephp</a>
                   <ul role="navigation" class="nav">
                     <li class="dropdown">
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" href="#" id="drop1">Dropdown <b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" href="#" id="drop1">User <b class="caret"></b></a>
                       <ul aria-labelledby="drop1" role="menu" class="dropdown-menu">
-                        <li role="presentation"><a href="http://google.com" tabindex="-1" role="menuitem">Action</a></li>
+                        <li role="presentation"><a href="<?php echo $this->Html->Url(array('controller' => 'users')) ?>" tabindex="-1" role="menuitem">Home</a></li>
                         <li role="presentation"><a href="#anotherAction" tabindex="-1" role="menuitem">Another action</a></li>
                         <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Something else here</a></li>
                         <li class="divider" role="presentation"></li>
@@ -71,7 +71,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#">Dropdown 2 <b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop2" href="#">Post <b class="caret"></b></a>
                       <ul aria-labelledby="drop2" role="menu" class="dropdown-menu">
                         <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Action</a></li>
                         <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Another action</a></li>
@@ -83,13 +83,28 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
                   </ul>
                   <ul class="nav pull-right">
                     <li class="dropdown" id="fat-menu">
-                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#">Dropdown 3 <b class="caret"></b></a>
+                      <a data-toggle="dropdown" class="dropdown-toggle" role="button" id="drop3" href="#">User Info <b class="caret"></b></a>
                       <ul aria-labelledby="drop3" role="menu" class="dropdown-menu">
-                        <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Action</a></li>
+
+                      	<!--
+                      <?php if($this->Access->isLoggedin()) { ?>
+                        <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Logout</a></li>
+                      <?php }else {?>
+                       <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Login</a></li>
+                       <?php } ?> -->
+
+                       <?php if($this->Access->isLoggedin()) { 
+                       echo "<li>".$this->Html->link('logout' ,array('controller' => 'users','action' => 'logout')) ."</li>";
+                   		}else{
+                        echo "<li>". $this->Html->link('Login' ,array('controller' => 'users','action' => 'login'))."</li>" ;
+                        } 
+                        ?>
+                        
                         <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Another action</a></li>
                         <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Something else here</a></li>
                         <li class="divider" role="presentation"></li>
                         <li role="presentation"><a href="#" tabindex="-1" role="menuitem">Separated link</a></li>
+
                       </ul>
                     </li>
                   </ul>
