@@ -3,18 +3,17 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
+
 App::uses('Security', 'Utility');
-App::uses('Hash', 'Utility');
 
 /**
  * Base Authentication class with common methods and properties.
@@ -31,7 +30,6 @@ abstract class BaseAuthenticate {
  * - `scope` Additional conditions to use when looking up and authenticating users,
  *    i.e. `array('User.is_active' => 1).`
  * - `recursive` The value of the recursive key passed to find(). Defaults to 0.
- * - `contain` Extra models to contain and store in session.
  *
  * @var array
  */
@@ -42,8 +40,7 @@ abstract class BaseAuthenticate {
 		),
 		'userModel' => 'User',
 		'scope' => array(),
-		'recursive' => 0,
-		'contain' => null,
+		'recursive' => 0
 	);
 
 /**
@@ -61,54 +58,37 @@ abstract class BaseAuthenticate {
  */
 	public function __construct(ComponentCollection $collection, $settings) {
 		$this->_Collection = $collection;
-		$this->settings = Hash::merge($this->settings, $settings);
+		$this->settings = Set::merge($this->settings, $settings);
 	}
 
 /**
  * Find a user record using the standard options.
  *
- * The $conditions parameter can be a (string)username or an array containing conditions for Model::find('first'). If
- * the password field is not included in the conditions the password will be returned.
- *
- * @param Mixed $conditions The username/identifier, or an array of find conditions.
- * @param Mixed $password The password, only use if passing as $conditions = 'username'.
+ * @param string $username The username/identifier.
+ * @param string $password The unhashed password.
  * @return Mixed Either false on failure, or an array of user data.
  */
-	protected function _findUser($conditions, $password = null) {
+	protected function _findUser($username, $password) {
 		$userModel = $this->settings['userModel'];
-		list(, $model) = pluginSplit($userModel);
+		list($plugin, $model) = pluginSplit($userModel);
 		$fields = $this->settings['fields'];
 
-		if (!is_array($conditions)) {
-			if (!$password) {
-				return false;
-			}
-			$username = $conditions;
-			$conditions = array(
-				$model . '.' . $fields['username'] => $username,
-				$model . '.' . $fields['password'] => $this->_password($password),
-			);
-		}
+		$conditions = array(
+			$model . '.' . $fields['username'] => $username,
+			$model . '.' . $fields['password'] => $this->_password($password),
+		);
 		if (!empty($this->settings['scope'])) {
 			$conditions = array_merge($conditions, $this->settings['scope']);
 		}
 		$result = ClassRegistry::init($userModel)->find('first', array(
 			'conditions' => $conditions,
-			'recursive' => $this->settings['recursive'],
-			'contain' => $this->settings['contain'],
+			'recursive' => (int)$this->settings['recursive']
 		));
 		if (empty($result) || empty($result[$model])) {
 			return false;
 		}
-		$user = $result[$model];
-		if (
-			isset($conditions[$model . '.' . $fields['password']]) ||
-			isset($conditions[$fields['password']])
-		) {
-			unset($user[$fields['password']]);
-		}
-		unset($result[$model]);
-		return array_merge($user, $result);
+		unset($result[$model][$fields['password']]);
+		return $result[$model];
 	}
 
 /**
@@ -145,13 +125,13 @@ abstract class BaseAuthenticate {
 	}
 
 /**
- * Get a user based on information in the request. Primarily used by stateless authentication
+ * Get a user based on information in the request.  Primarily used by stateless authentication
  * systems like basic and digest auth.
  *
  * @param CakeRequest $request Request object.
  * @return mixed Either false or an array of user information
  */
-	public function getUser(CakeRequest $request) {
+	public function getUser($request) {
 		return false;
 	}
 

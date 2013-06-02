@@ -5,13 +5,12 @@
  * Simplifies the output of RSS feeds.
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.View.Helper
  * @since         CakePHP(tm) v 1.2
@@ -117,8 +116,8 @@ class RssHelper extends AppHelper {
  * Returns an RSS `<channel />` element
  *
  * @param array $attrib `<channel />` tag attributes
- * @param array $elements Named array elements which are converted to tags
- * @param string $content Content (`<item />`'s belonging to this channel
+ * @param mixed $elements Named array elements which are converted to tags
+ * @param mixed $content Content (`<item />`'s belonging to this channel
  * @return string An RSS `<channel />`
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/rss.html#RssHelper::channel
  */
@@ -138,7 +137,7 @@ class RssHelper extends AppHelper {
 		foreach ($elements as $elem => $data) {
 			$attributes = array();
 			if (is_array($data)) {
-				if (strtolower($elem) === 'cloud') {
+				if (strtolower($elem) == 'cloud') {
 					$attributes = $data;
 					$data = array();
 				} elseif (isset($data['attrib']) && is_array($data['attrib'])) {
@@ -162,13 +161,13 @@ class RssHelper extends AppHelper {
  * of `<item />` tags
  *
  * @param array $items The list of items to be mapped
- * @param string|array $callback A string function name, or array containing an object
+ * @param mixed $callback A string function name, or array containing an object
  *     and a string method name
  * @return string A set of RSS `<item />` elements
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/rss.html#RssHelper::items
  */
 	public function items($items, $callback = null) {
-		if ($callback) {
+		if ($callback != null) {
 			$items = array_map($callback, $items);
 		}
 
@@ -257,8 +256,6 @@ class RssHelper extends AppHelper {
 					$attrib = $val;
 					$val = null;
 				break;
-				default:
-					$attrib = $att;
 			}
 			if (!is_null($val) && $escape) {
 				$val = h($val);
@@ -274,7 +271,7 @@ class RssHelper extends AppHelper {
 /**
  * Converts a time in any format to an RSS time
  *
- * @param integer|string|DateTime $time
+ * @param mixed $time
  * @return string An RSS-formatted timestamp
  * @see TimeHelper::toRSS
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/rss.html#RssHelper::time
@@ -288,7 +285,7 @@ class RssHelper extends AppHelper {
  *
  * @param string $name The name of the XML element
  * @param array $attrib The attributes of the XML element
- * @param string|array $content XML element content
+ * @param mixed $content XML element content
  * @param boolean $endTag Whether the end tag of the element should be printed
  * @return string XML
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/rss.html#RssHelper::elem
@@ -315,12 +312,7 @@ class RssHelper extends AppHelper {
 
 		$xml = '<' . $name;
 		if (!empty($namespace)) {
-			$xml .= ' xmlns';
-			if (is_array($namespace)) {
-				$xml .= ':' . $namespace['prefix'];
-				$namespace = $namespace['url'];
-			}
-			$xml .= '="' . $namespace . '"';
+			$xml .= ' xmlns:"' . $namespace . '"';
 		}
 		$bareName = $name;
 		if (strpos($name, ':') !== false) {
@@ -337,12 +329,10 @@ class RssHelper extends AppHelper {
 		$xml .= '>' . $content . '</' . $name . '>';
 		$elem = Xml::build($xml, array('return' => 'domdocument'));
 		$nodes = $elem->getElementsByTagName($bareName);
-		if ($attrib) {
-			foreach ($attrib as $key => $value) {
-				$nodes->item(0)->setAttribute($key, $value);
-			}
+		foreach ($attrib as $key => $value) {
+			$nodes->item(0)->setAttribute($key, $value);
 		}
-		foreach ($children as $child) {
+		foreach ($children as $k => $child) {
 			$child = $elem->createElement($name, $child);
 			$nodes->item(0)->appendChild($child);
 		}

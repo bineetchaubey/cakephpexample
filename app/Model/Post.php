@@ -1,34 +1,25 @@
 <?php
-App::uses('AppModel', 'Model');
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /**
- * Post Model
+ * Description of Post
  *
- * @property User $User
+ * @author Atul
  */
 class Post extends AppModel {
+    //put your code here
+    var $name = 'Post';
+    Var $belongsTo = array(
+                    'User' => array(
+                        'className'=>'User',
+                        'foreignKey' => 'User_id',
+                        'conditions' => null,
+                        'Fields' => null
+                        )
+        );
 
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'title';
-
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
 }
+?>

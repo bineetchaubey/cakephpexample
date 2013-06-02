@@ -1,107 +1,243 @@
-
-2013-05-29 12:34:02 Error: Fatal Error (4): syntax error, unexpected T_ECHO, expecting ',' or ';' in [/opt/lampp/htdocs/cakephp/app/View/Posts/add.ctp, line 21]
-2013-05-29 12:34:02 Error: [FatalErrorException] syntax error, unexpected T_ECHO, expecting ',' or ';'
-Request URL: /cakephp/posts/add/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21)
-#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(899): App::_checkFatalError()
-#4 [internal function]: App::shutdown()
-#5 {main}
-2013-05-29 12:34:06 Error: Fatal Error (4): syntax error, unexpected T_ECHO, expecting ',' or ';' in [/opt/lampp/htdocs/cakephp/app/View/Posts/add.ctp, line 21]
-2013-05-29 12:34:06 Error: [FatalErrorException] syntax error, unexpected T_ECHO, expecting ',' or ';'
-Request URL: /cakephp/posts/add/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21)
-#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(899): App::_checkFatalError()
-#4 [internal function]: App::shutdown()
-#5 {main}
-2013-05-29 12:34:06 Error: Fatal Error (4): syntax error, unexpected T_ECHO, expecting ',' or ';' in [/opt/lampp/htdocs/cakephp/app/View/Posts/add.ctp, line 21]
-2013-05-29 12:34:06 Error: [FatalErrorException] syntax error, unexpected T_ECHO, expecting ',' or ';'
-Request URL: /cakephp/posts/add/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21)
-#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(899): App::_checkFatalError()
-#4 [internal function]: App::shutdown()
-#5 {main}
-2013-05-29 12:53:32 Error: [MissingControllerException] Controller class PostController could not be found.
-Exception Attributes: array (
-  'class' => 'PostController',
-  'plugin' => NULL,
-)
-Request URL: /cakephp/post/add
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+2012-05-28 04:44:53 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
-2013-05-29 12:54:17 Error: Fatal Error (4): syntax error, unexpected T_ECHO, expecting ',' or ';' in [/opt/lampp/htdocs/cakephp/app/View/Posts/add.ctp, line 21]
-2013-05-29 12:54:17 Error: [FatalErrorException] syntax error, unexpected T_ECHO, expecting ',' or ';'
-Request URL: /cakephp/posts/add
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21)
-#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/opt/lampp/htdo...', 21, Array)
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Core/App.php(899): App::_checkFatalError()
-#4 [internal function]: App::shutdown()
+2012-05-28 04:45:33 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:48:17 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:48:56 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:49:39 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:49:44 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:50:49 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:56:11 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 04:56:42 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:28:11 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:29:18 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:29:21 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:29:38 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:29:41 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:29:59 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:52 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:55 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:56 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:57 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:58 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:58 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:30:59 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:31:23 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:31:35 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:32:48 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:32:53 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-05-28 05:32:54 Error: [MissingControllerException] Controller class PostController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 04:43:57 Error: [MissingControllerException] Controller class PostsController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 05:13:43 Error: [MissingControllerException] Controller class CustomersController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 05:15:20 Error: [MissingComponentException] Component class PaginaterComponent could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\Controller\ComponentCollection.php(52): ComponentCollection->load('Paginater', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(635): ComponentCollection->init(Object(CustomersController))
+#2 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(99): Controller->constructClasses()
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
-2013-05-29 13:01:19 Error: Fatal Error (4): syntax error, unexpected T_ECHO, expecting ',' or ';' in [/opt/lampp/htdocs/cakephp/app/View/Posts/add.ctp, line 21]
-2013-05-29 13:16:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Paginate' at line 1
-Request URL: /cakephp/posts/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
-#1 /opt/lampp/htdocs/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('Paginate', Array)
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Model/Datasource/DboSource.php(670): DboSource->execute('Paginate', Array, Array)
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Model/Datasource/DboSource.php(612): DboSource->fetchAll('Paginate', Array, Array)
-#4 /opt/lampp/htdocs/cakephp/lib/Cake/Model/Model.php(800): DboSource->query('Paginate', Array, Object(Post))
-#5 /opt/lampp/htdocs/cakephp/app/Controller/PostsController.php(58): Model->__call('Paginate', Array)
-#6 /opt/lampp/htdocs/cakephp/app/Controller/PostsController.php(58): Post->Paginate()
-#7 [internal function]: PostsController->index()
-#8 /opt/lampp/htdocs/cakephp/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(PostsController), Array)
-#9 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
-#10 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
-#11 /opt/lampp/htdocs/cakephp/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+2012-10-13 09:05:48 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 09:06:15 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 09:08:06 Error: [MissingControllerException] Controller class UsersController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 10:33:50 Error: [MissingControllerException] Controller class UserController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-13 10:35:09 Error: [MissingViewException] View file "C:\wamp\www\cakephp\app\View\User\login.ctp" is missing.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-13 10:35:19 Error: [MissingViewException] View file "C:\wamp\www\cakephp\app\View\User\login.ctp" is missing.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-13 10:36:53 Error: [MissingViewException] View file "C:\wamp\www\cakephp\app\View\User\login.ctp" is missing.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-13 10:56:53 Error: [MissingViewException] View file "C:\wamp\www\cakephp\app\View\Customers\logout.ctp" is missing.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(462): View->_getViewFileName(NULL)
+#1 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#2 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-14 06:03:36 Error: [MissingControllerException] Controller class RatesController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-14 06:06:49 Error: [MissingActionException] Action ProductsController::rate() could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ProductsController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2012-10-14 07:27:49 Error: [MissingControllerException] Controller class ProductController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-14 07:28:21 Error: [MissingControllerException] Controller class ProductController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-14 07:57:29 Error: [MissingControllerException] Controller class CustomerController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-14 08:08:30 Error: [MissingControllerException] Controller class CustomerController could not be found.
+#0 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-10-14 15:33:22 Error: [MissingComponentException] Component class PaginationComponent could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\Controller\ComponentCollection.php(52): ComponentCollection->load('Pagination', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(635): ComponentCollection->init(Object(CustomersController))
+#2 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(99): Controller->constructClasses()
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-10-14 15:34:33 Error: [MissingHelperException] Helper class paginaterHelper could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(852): HelperCollection->load('paginater', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-10-14 15:35:04 Error: [MissingHelperException] Helper class paginaterHelper could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(852): HelperCollection->load('paginater', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-10-14 15:35:12 Error: [MissingHelperException] Helper class paginaterHelper could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(852): HelperCollection->load('paginater', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-10-14 15:38:22 Error: [MissingHelperException] Helper class paginaterHelper could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(852): HelperCollection->load('paginater', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2012-10-14 15:40:09 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paginate' at line 1
+#0 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('paginate', Array)
+#2 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('paginate', Array, Array)
+#3 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('paginate', Array, Array)
+#4 C:\wamp\www\cakephp\lib\Cake\Model\Model.php(775): DboSource->query('paginate', Array, Object(Customer))
+#5 C:\wamp\www\cakephp\app\Controller\CustomersController.php(25): Model->__call('paginate', Array)
+#6 C:\wamp\www\cakephp\app\Controller\CustomersController.php(25): Customer->paginate()
+#7 [internal function]: CustomersController->index()
+#8 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#9 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
-2013-05-29 13:20:32 Error: [MissingComponentException] Component class PaginateComponent could not be found.
-Exception Attributes: array (
-  'class' => 'PaginateComponent',
-  'plugin' => false,
-)
-Request URL: /cakephp/posts/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Controller/ComponentCollection.php(53): ComponentCollection->load('Paginate', Array)
-#1 /opt/lampp/htdocs/cakephp/lib/Cake/Controller/Controller.php(635): ComponentCollection->init(Object(PostsController))
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(183): Controller->constructClasses()
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
-#4 /opt/lampp/htdocs/cakephp/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
-#5 {main}
-2013-05-29 13:21:08 Error: [MissingComponentException] Component class PaginaterComponent could not be found.
-Exception Attributes: array (
-  'class' => 'PaginaterComponent',
-  'plugin' => false,
-)
-Request URL: /cakephp/posts/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/Controller/ComponentCollection.php(53): ComponentCollection->load('Paginater', Array)
-#1 /opt/lampp/htdocs/cakephp/lib/Cake/Controller/Controller.php(635): ComponentCollection->init(Object(PostsController))
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(183): Controller->constructClasses()
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
-#4 /opt/lampp/htdocs/cakephp/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
-#5 {main}
-2013-05-29 13:23:35 Error: [MissingHelperException] Helper class PaginationHelper could not be found.
-Exception Attributes: array (
-  'class' => 'PaginationHelper',
-  'plugin' => false,
-)
-Request URL: /cakephp/posts/
-Stack Trace:
-#0 /opt/lampp/htdocs/cakephp/lib/Cake/View/View.php(884): HelperCollection->load('Pagination', Array)
-#1 /opt/lampp/htdocs/cakephp/lib/Cake/View/View.php(464): View->loadHelpers()
-#2 /opt/lampp/htdocs/cakephp/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
-#3 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
-#4 /opt/lampp/htdocs/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(PostsController), Object(CakeRequest), Object(CakeResponse))
-#5 /opt/lampp/htdocs/cakephp/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+2012-10-14 15:42:31 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paginate' at line 1
+#0 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('paginate', Array)
+#2 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('paginate', Array, Array)
+#3 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('paginate', Array, Array)
+#4 C:\wamp\www\cakephp\lib\Cake\Model\Model.php(775): DboSource->query('paginate', Array, Object(Customer))
+#5 C:\wamp\www\cakephp\app\Controller\CustomersController.php(25): Model->__call('paginate', Array)
+#6 C:\wamp\www\cakephp\app\Controller\CustomersController.php(25): Customer->paginate()
+#7 [internal function]: CustomersController->index()
+#8 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#9 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-10-14 15:42:35 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'paginate' at line 1
+#0 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(437): PDOStatement->execute(Array)
+#1 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('paginate', Array)
+#2 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(647): DboSource->execute('paginate', Array, Array)
+#3 C:\wamp\www\cakephp\lib\Cake\Model\Datasource\DboSource.php(589): DboSource->fetchAll('paginate', Array, Array)
+#4 C:\wamp\www\cakephp\lib\Cake\Model\Model.php(775): DboSource->query('paginate', Array, Object(Customer))
+#5 C:\wamp\www\cakephp\app\Controller\CustomersController.php(25): Model->__call('paginate', Array)
+#6 C:\wamp\www\cakephp\app\Controller\CustomersController.php(25): Customer->paginate()
+#7 [internal function]: CustomersController->index()
+#8 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CustomersController), Array)
+#9 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#10 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#11 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2012-10-14 15:47:42 Error: [MissingHelperException] Helper class paginateHelper could not be found.
+#0 C:\wamp\www\cakephp\lib\Cake\View\View.php(852): HelperCollection->load('paginate', Array)
+#1 C:\wamp\www\cakephp\lib\Cake\View\View.php(458): View->loadHelpers()
+#2 C:\wamp\www\cakephp\lib\Cake\Controller\Controller.php(959): View->render(NULL, NULL)
+#3 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#4 C:\wamp\www\cakephp\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(CustomersController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\wamp\www\cakephp\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #6 {main}

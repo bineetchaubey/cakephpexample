@@ -5,13 +5,12 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Console.Templates.default.actions
  * @since         CakePHP(tm) v 1.3
@@ -32,16 +31,15 @@
 /**
  * <?php echo $admin ?>view method
  *
- * @throws NotFoundException
  * @param string $id
  * @return void
  */
 	public function <?php echo $admin ?>view($id = null) {
-		if (!$this-><?php echo $currentModelName; ?>->exists($id)) {
+		$this-><?php echo $currentModelName; ?>->id = $id;
+		if (!$this-><?php echo $currentModelName; ?>->exists()) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
-		$options = array('conditions' => array('<?php echo $currentModelName; ?>.' . $this-><?php echo $currentModelName; ?>->primaryKey => $id));
-		$this->set('<?php echo $singularName; ?>', $this-><?php echo $currentModelName; ?>->find('first', $options));
+		$this->set('<?php echo $singularName; ?>', $this-><?php echo $currentModelName; ?>->read(null, $id));
 	}
 
 <?php $compact = array(); ?>
@@ -87,12 +85,12 @@
 /**
  * <?php echo $admin ?>edit method
  *
- * @throws NotFoundException
  * @param string $id
  * @return void
  */
 	public function <?php echo $admin; ?>edit($id = null) {
-		if (!$this-><?php echo $currentModelName; ?>->exists($id)) {
+		$this-><?php echo $currentModelName; ?>->id = $id;
+		if (!$this-><?php echo $currentModelName; ?>->exists()) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
@@ -109,8 +107,7 @@
 <?php endif; ?>
 			}
 		} else {
-			$options = array('conditions' => array('<?php echo $currentModelName; ?>.' . $this-><?php echo $currentModelName; ?>->primaryKey => $id));
-			$this->request->data = $this-><?php echo $currentModelName; ?>->find('first', $options);
+			$this->request->data = $this-><?php echo $currentModelName; ?>->read(null, $id);
 		}
 <?php
 		foreach (array('belongsTo', 'hasAndBelongsToMany') as $assoc):
@@ -132,16 +129,17 @@
 /**
  * <?php echo $admin ?>delete method
  *
- * @throws NotFoundException
  * @param string $id
  * @return void
  */
 	public function <?php echo $admin; ?>delete($id = null) {
+		if (!$this->request->is('post')) {
+			throw new MethodNotAllowedException();
+		}
 		$this-><?php echo $currentModelName; ?>->id = $id;
 		if (!$this-><?php echo $currentModelName; ?>->exists()) {
 			throw new NotFoundException(__('Invalid <?php echo strtolower($singularHumanName); ?>'));
 		}
-		$this->request->onlyAllow('post', 'delete');
 		if ($this-><?php echo $currentModelName; ?>->delete()) {
 <?php if ($wannaUseSession): ?>
 			$this->Session->setFlash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> deleted'));

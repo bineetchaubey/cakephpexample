@@ -5,13 +5,12 @@
  * PHP 5
  *
  * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright       Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright       Copyright 2005-2012, Cake Software Foundation, Inc.
  * @link            http://cakephp.org CakePHP Project
  * @package       Cake.Test.Case.View.Helper
  * @license         MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -213,18 +212,6 @@ class JqueryEngineHelperTest extends CakeTestCase {
 			'data' => '$("#someId").serialize()',
 		));
 		$expected = '$.ajax({beforeSend:function (XMLHttpRequest) {doBefore}, data:$("#someId").serialize(), success:function (data, textStatus) {doFoo}, type:"post", url:"\\/people\\/edit\\/1"});';
-		$this->assertEquals($expected, $result);
-	}
-
-/**
- * Test that querystring arguments are not double escaped.
- *
- * @return void
- */
-	public function testRequestWithQueryStringArguments() {
-		$url = '/users/search/sort:User.name/direction:desc?nome=&cpm=&audience=public';
-		$result = $this->Jquery->request($url);
-		$expected = '$.ajax({url:"\\/users\\/search\\/sort:User.name\\/direction:desc?nome=&cpm=&audience=public"});';
 		$this->assertEquals($expected, $result);
 	}
 

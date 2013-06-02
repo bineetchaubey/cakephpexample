@@ -7,13 +7,12 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.View.Helper
  * @since         CakePHP(tm) v 0.10.0.1076
@@ -21,7 +20,6 @@
  */
 
 App::uses('AppHelper', 'View/Helper');
-App::uses('Hash', 'Utility');
 
 /**
  * Text helper library.
@@ -52,8 +50,6 @@ class TextHelper extends AppHelper {
 
 /**
  * String utility instance
- *
- * @var stdClass
  */
 	protected $_engine;
 
@@ -70,7 +66,7 @@ class TextHelper extends AppHelper {
  * @throws CakeException when the engine class could not be found.
  */
 	public function __construct(View $View, $settings = array()) {
-		$settings = Hash::merge(array('engine' => 'String'), $settings);
+		$settings = Set::merge(array('engine' => 'String'), $settings);
 		parent::__construct($View, $settings);
 		list($plugin, $engineClass) = pluginSplit($settings['engine'], true);
 		App::uses($engineClass, $plugin . 'Utility');
@@ -105,9 +101,8 @@ class TextHelper extends AppHelper {
 		$this->_placeholders = array();
 		$options += array('escape' => true);
 
-		$pattern = '#(?<!href="|src="|">)((?:https?|ftp|nntp)://[a-z0-9.\-:]+(?:/[^\s]*)?)#i';
 		$text = preg_replace_callback(
-			$pattern,
+			'#(?<!href="|src="|">)((?:https?|ftp|nntp)://[^\s<>()]+)#i',
 			array(&$this, '_insertPlaceHolder'),
 			$text
 		);
@@ -123,7 +118,7 @@ class TextHelper extends AppHelper {
 	}
 
 /**
- * Saves the placeholder for a string, for later use. This gets around double
+ * Saves the placeholder for a string, for later use.  This gets around double
  * escaping content in URL's.
  *
  * @param array $matches An array of regexp matches.

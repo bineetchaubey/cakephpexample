@@ -5,13 +5,12 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Controller.Component.Auth
  * @since         CakePHP(tm) v 2.0
@@ -54,7 +53,18 @@ class BasicAuthenticateTest extends CakeTestCase {
 		$password = Security::hash('password', null, true);
 		$User = ClassRegistry::init('User');
 		$User->updateAll(array('password' => $User->getDataSource()->value($password)));
+		$this->server = $_SERVER;
 		$this->response = $this->getMock('CakeResponse');
+	}
+
+/**
+ * tearDown
+ *
+ * @return void
+ */
+	public function tearDown() {
+		parent::tearDown();
+		$_SERVER = $this->server;
 	}
 
 /**

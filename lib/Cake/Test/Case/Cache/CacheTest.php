@@ -5,13 +5,12 @@
  * PHP 5
  *
  * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Cache
  * @since         CakePHP(tm) v 1.2.0.5432
@@ -33,7 +32,6 @@ class CacheTest extends CakeTestCase {
  * @return void
  */
 	public function setUp() {
-		parent::setUp();
 		$this->_cacheDisable = Configure::read('Cache.disable');
 		Configure::write('Cache.disable', false);
 
@@ -47,7 +45,6 @@ class CacheTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		parent::tearDown();
 		Configure::write('Cache.disable', $this->_cacheDisable);
 		Cache::config('default', $this->_defaultCacheConfig['settings']);
 	}
@@ -63,17 +60,6 @@ class CacheTest extends CakeTestCase {
 		$this->assertEquals(Cache::config('new'), $results);
 		$this->assertTrue(isset($results['engine']));
 		$this->assertTrue(isset($results['settings']));
-	}
-
-/**
- * testConfigInvalidEngine method
- *
- * @expectedException CacheException
- * @return void
- */
-	public function testConfigInvalidEngine() {
-		$settings = array('engine' => 'Imaginary');
-		Cache::config('imaginary', $settings);
 	}
 
 /**
@@ -137,7 +123,7 @@ class CacheTest extends CakeTestCase {
 			'serialize' => true,
 			'random' => 'wii'
 		));
-		Cache::read('Test', 'invalid');
+		$read = Cache::read('Test', 'invalid');
 	}
 
 /**
@@ -228,9 +214,8 @@ class CacheTest extends CakeTestCase {
 			'duration' => 3600,
 			'probability' => 100,
 			'engine' => 'File',
-			'isWindows' => DIRECTORY_SEPARATOR === '\\',
-			'mask' => 0664,
-			'groups' => array()
+			'isWindows' => DIRECTORY_SEPARATOR == '\\',
+			'mask' => 0664
 		);
 		$this->assertEquals($expected, Cache::settings('sessions'));
 
@@ -403,7 +388,7 @@ class CacheTest extends CakeTestCase {
 
 		Cache::delete('test_cache');
 
-		Cache::settings();
+		$global = Cache::settings();
 
 		Cache::set($_cacheSet);
 	}

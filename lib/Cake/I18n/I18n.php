@@ -5,23 +5,31 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.I18n
  * @since         CakePHP(tm) v 1.2.0.4116
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
+/**
+ * Included libraries.
+ */
 App::uses('CakePlugin', 'Core');
 App::uses('L10n', 'I18n');
 App::uses('Multibyte', 'I18n');
-App::uses('CakeSession', 'Model/Datasource');
+
+if (function_exists('mb_internal_encoding')) {
+	$encoding = Configure::read('App.encoding');
+	if (!empty($encoding)) {
+		mb_internal_encoding($encoding);
+	}
+}
 
 /**
  * I18n handles translation of Text and time format strings.
@@ -89,11 +97,6 @@ class I18n {
 		'LC_ALL', 'LC_COLLATE', 'LC_CTYPE', 'LC_MONETARY', 'LC_NUMERIC', 'LC_TIME', 'LC_MESSAGES'
 	);
 
-/**
- * Escape string
- *
- * @var string
- */
 	protected $_escape = null;
 
 /**
@@ -124,7 +127,7 @@ class I18n {
  *
  * @param string $singular String to translate
  * @param string $plural Plural string (if any)
- * @param string $domain Domain The domain of the translation. Domains are often used by plugin translations
+ * @param string $domain Domain The domain of the translation.  Domains are often used by plugin translations
  * @param string $category Category The integer value of the category to use.
  * @param integer $count Count Count is used with $plural to choose the correct plural form.
  * @param string $language Language to translate string to.
@@ -146,10 +149,9 @@ class I18n {
 		}
 
 		if (empty($language)) {
-			if (CakeSession::started()) {
-				$language = CakeSession::read('Config.language');
-			}
-			if (empty($language)) {
+			if (!empty($_SESSION['Config']['language'])) {
+				$language = $_SESSION['Config']['language'];
+			} else {
 				$language = Configure::read('Config.language');
 			}
 		}
@@ -174,7 +176,7 @@ class I18n {
 			Cache::write($_this->domain, $_this->_domains[$domain][$_this->_lang], '_cake_core_');
 		}
 
-		if ($_this->category === 'LC_TIME') {
+		if ($_this->category == 'LC_TIME') {
 			return $_this->_translateTime($singular, $domain);
 		}
 
@@ -223,7 +225,7 @@ class I18n {
 	}
 
 /**
- * Clears the domains internal data array. Useful for testing i18n.
+ * Clears the domains internal data array.  Useful for testing i18n.
  *
  * @return void
  */
@@ -383,7 +385,7 @@ class I18n {
 				$this->_domains[$domain][$this->_lang][$this->category]["%plural-c"] = $switch;
 				unset($this->_domains[$domain][$this->_lang][$this->category]["%po-header"]);
 			}
-			$this->_domains = Hash::mergeDiff($this->_domains, $merge);
+			$this->_domains = Set::pushDiff($this->_domains, $merge);
 
 			if (isset($this->_domains[$domain][$this->_lang][$this->category][null])) {
 				unset($this->_domains[$domain][$this->_lang][$this->category][null]);
@@ -410,7 +412,7 @@ class I18n {
 			$header = unpack("L1magic/L1version/L1count/L1o_msg/L1o_trn", $header);
 			extract($header);
 
-			if ((dechex($magic) === '950412de' || dechex($magic) === 'ffffffff950412de') && !$version) {
+			if ((dechex($magic) == '950412de' || dechex($magic) == 'ffffffff950412de') && $version == 0) {
 				for ($n = 0; $n < $count; $n++) {
 					$r = unpack("L1len/L1offs", substr($data, $o_msg + $n * 8, 8));
 					$msgid = substr($data, $r["offs"], $r["len"]);
@@ -457,7 +459,7 @@ class I18n {
 
 		do {
 			$line = trim(fgets($file));
-			if ($line === "" || $line[0] === "#") {
+			if ($line == "" || $line[0] == "#") {
 				continue;
 			}
 			if (preg_match("/msgid[[:space:]]+\"(.+)\"$/i", $line, $regs)) {
@@ -590,19 +592,19 @@ class I18n {
 		$string = $string[1];
 		if (substr($string, 0, 2) === $this->_escape . 'x') {
 			$delimiter = $this->_escape . 'x';
-			return implode('', array_map('chr', array_map('hexdec',array_filter(explode($delimiter, $string)))));
+			return join('', array_map('chr', array_map('hexdec',array_filter(explode($delimiter, $string)))));
 		}
 		if (substr($string, 0, 2) === $this->_escape . 'd') {
 			$delimiter = $this->_escape . 'd';
-			return implode('', array_map('chr', array_filter(explode($delimiter, $string))));
+			return join('', array_map('chr', array_filter(explode($delimiter, $string))));
 		}
 		if ($string[0] === $this->_escape && isset($string[1]) && is_numeric($string[1])) {
 			$delimiter = $this->_escape;
-			return implode('', array_map('chr', array_filter(explode($delimiter, $string))));
+			return join('', array_map('chr', array_filter(explode($delimiter, $string))));
 		}
 		if (substr($string, 0, 3) === 'U00') {
 			$delimiter = 'U00';
-			return implode('', array_map('chr', array_map('hexdec', array_filter(explode($delimiter, $string)))));
+			return join('', array_map('chr', array_map('hexdec', array_filter(explode($delimiter, $string)))));
 		}
 		if (preg_match('/U([0-9a-fA-F]{4})/', $string, $match)) {
 			return Multibyte::ascii(array(hexdec($match[1])));

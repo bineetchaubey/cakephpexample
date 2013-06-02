@@ -7,13 +7,12 @@
  * PHP 5
  *
  * CakePHP(tm) Tests <http://book.cakephp.org/2.0/en/development/testing.html>
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc.
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc.
  * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Model
  * @since         CakePHP(tm) v 2.1
@@ -111,7 +110,7 @@ class ModelCrossSchemaHabtmTest extends BaseModelTest {
 			),
 		));
 		$this->assertEquals(4, count($players));
-		$wizards = Hash::extract($players, '{n}.Guild.{n}[name=Wizards]');
+		$wizards = Set::extract('/Guild[name=Wizards]', $players);
 		$this->assertEquals(1, count($wizards));
 
 		$players = $Player->find('all', array(
@@ -121,7 +120,7 @@ class ModelCrossSchemaHabtmTest extends BaseModelTest {
 			),
 		));
 		$this->assertEquals(1, count($players));
-		$wizards = Hash::extract($players, '{n}.Guild.{n}');
+		$wizards = Set::extract('/Guild', $players);
 		$this->assertEquals(2, count($wizards));
 	}
 
@@ -164,7 +163,8 @@ class ModelCrossSchemaHabtmTest extends BaseModelTest {
 				),
 			),
 		));
-		$rangers = Hash::extract($players, '{n}.Guild.{n}[name=Rangers]');
+
+		$rangers = Set::extract('/Guild[name=Rangers]', $players);
 		$this->assertEquals(2, count($rangers));
 	}
 
@@ -214,6 +214,7 @@ class ModelCrossSchemaHabtmTest extends BaseModelTest {
 			'Armor' => array(
 				'Armor' => array(
 					1, 2, 3, 4,
+					1, 2, 3, 4,
 				),
 			),
 		);
@@ -226,7 +227,7 @@ class ModelCrossSchemaHabtmTest extends BaseModelTest {
 				'Player.id' => 10,
 			)
 		));
-		$spongeBobsArmors = Hash::extract($spongebob, '{n}.Armor.{n}');
+		$spongeBobsArmors = Set::extract('/Armor', $spongebob);
 		$this->assertEquals(4, count($spongeBobsArmors));
 	}
 }

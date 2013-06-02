@@ -5,13 +5,12 @@
  * PHP 5
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://book.cakephp.org/2.0/en/development/testing.html CakePHP(tm) Tests
  * @package       Cake.Test.Case.Console
  * @since         CakePHP(tm) v 2.0
@@ -55,8 +54,8 @@ class TaskCollectionTest extends CakeTestCase {
 		$this->assertInstanceOf('DbConfigTask', $result);
 		$this->assertInstanceOf('DbConfigTask', $this->Tasks->DbConfig);
 
-		$result = $this->Tasks->loaded();
-		$this->assertEquals(array('DbConfig'), $result, 'loaded() results are wrong.');
+		$result = $this->Tasks->attached();
+		$this->assertEquals(array('DbConfig'), $result, 'attached() results are wrong.');
 	}
 
 /**
@@ -79,7 +78,7 @@ class TaskCollectionTest extends CakeTestCase {
  * @return void
  */
 	public function testLoadMissingTask() {
-		$this->Tasks->load('ThisTaskShouldAlwaysBeMissing');
+		$result = $this->Tasks->load('ThisTaskShouldAlwaysBeMissing');
 	}
 
 /**
@@ -111,14 +110,14 @@ class TaskCollectionTest extends CakeTestCase {
 		$this->Tasks->load('Extract');
 		$this->Tasks->load('DbConfig');
 
-		$result = $this->Tasks->loaded();
+		$result = $this->Tasks->attached();
 		$this->assertEquals(array('Extract', 'DbConfig'), $result, 'loaded tasks is wrong');
 
 		$this->Tasks->unload('DbConfig');
 		$this->assertFalse(isset($this->Tasks->DbConfig));
 		$this->assertTrue(isset($this->Tasks->Extract));
 
-		$result = $this->Tasks->loaded();
+		$result = $this->Tasks->attached();
 		$this->assertEquals(array('Extract'), $result, 'loaded tasks is wrong');
 	}
 
